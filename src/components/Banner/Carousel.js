@@ -32,7 +32,7 @@ const Carousel = () => {
 
     const [trending, setTrending] = useState([]);
 
-    const classes = useStyles();
+    const { classes } = useStyles();
 
     const { currency, symbol } = CryptoState();
 
