@@ -23,7 +23,7 @@ const useStyles = makeStyles()(() => {
       cursor: "pointer",
     },
     AppBar: {
-      backgroundColor: "#212121",
+      backgroundColor: "#1A1A1A",
     },
     select: {
       color: "white",
@@ -75,7 +75,7 @@ function Header() {
             <Typography 
               onClick={()=> navigate("/")} 
               className={classes.title} 
-              variant="h6"
+              variant="h5"
             >
               Coin Sense
             </Typography>
