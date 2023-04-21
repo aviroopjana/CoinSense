@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { CoinList } from '../config/api';
 import { CryptoState } from '../CryptoContext';
 import { ThemeProvider } from '@emotion/react';
-import { Container, LinearProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography, createTheme } from '@mui/material';
+import { Container, LinearProgress, Pagination, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography, createTheme } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 
@@ -41,8 +41,21 @@ const useStyles = makeStyles()(()=> {
         backgroundColor: "#131111",  
       },
       fontFamily: "Montserrat",
-     } 
-  }
+     },
+     pagination: {
+      '& .MuiPaginationItem-root': {
+        color: 'gold',
+        '&.Mui-selected': {
+          fontWeight: 'bold',
+          color: 'white',
+          backgroundColor: 'rgba(255, 215, 0, 0.5)',
+          '&:hover': {
+            backgroundColor: 'rgba(255, 215, 0, 0.8)',
+          },
+        },
+      },
+    },
+  };
 })
 
 const CoinsTable = () => {
@@ -50,6 +63,7 @@ const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
   const navigate = useNavigate();
 
@@ -132,7 +146,9 @@ const CoinsTable = () => {
                     </TableHead>
 
                     <TableBody>
-                            {handelSearch().map((row) => {
+                            {handelSearch()
+                            .slice((page - 1)*10,(page - 1)* 10 + 10)
+                            .map((row) => {
                               const profit =row.price_change_percentage_24h > 0;
 
                               return (
@@ -210,6 +226,21 @@ const CoinsTable = () => {
                   </Table>
           )}
         </TableContainer>
+
+        <Pagination
+          style={{
+            padding: 20,
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+          }}
+          classes={{ ul: classes.pagination }}
+          count={(handelSearch()?.length / 10).toFixed(0)}
+          onChange={(_,value)=> {
+            setPage(value);
+            window.scroll(0,350);
+          }}
+        />
 
       </Container>
     </ThemeProvider>     
