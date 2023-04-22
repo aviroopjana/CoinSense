@@ -119,6 +119,7 @@ const CoinsTable = () => {
             width: "100%",
           }}
           onChange={(e)=> setSearch(e.target.value)}
+          inputProps={{style: {color: "white"}}}
         />
 
         <TableContainer>
