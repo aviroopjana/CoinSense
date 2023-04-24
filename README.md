@@ -11,10 +11,17 @@ CoinSense is a cryptocurrency tracker built with ReactJS, Material UI, and Chart
 ## Features
 
 - Real-time updates of cryptocurrency prices
-- User-friendly interface for tracking your portfolio
+
+![Screenshot of CoinSense website](screenshots/Screenshot (60).png)
+
+- User-friendly interface for tracking your coins
+
+![Screenshot of CoinSense website](screenshots/Screenshot (61).png)
+
 - Market analysis section for staying informed about the latest trends
-- Easy customization options to suit your needs
-- Free and open-source software
+
+![Screenshot of CoinSense website](screenshots/Screenshot (62).png)
+
 
 ## Usage
 
