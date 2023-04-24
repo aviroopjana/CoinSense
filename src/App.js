@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import "./App.css";
 import CoinPage from "./pages/CoinPage";
+
 import { makeStyles } from "tss-react/mui";
 
 const useStyles = makeStyles()(() => {
